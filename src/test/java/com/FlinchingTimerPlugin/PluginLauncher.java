@@ -1,4 +1,4 @@
-package com.FlinchTimer;
+package com.FlinchingTimerPlugin;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.externalplugins.ExternalPluginManager;

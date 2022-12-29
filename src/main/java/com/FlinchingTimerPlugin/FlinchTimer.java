@@ -1,4 +1,4 @@
-package com.FlinchTimer;
+package com.FlinchingTimerPlugin;
 
 import com.google.inject.Provides;
 
@@ -39,7 +39,7 @@ public class FlinchTimer extends Plugin {
     public String NPC_NAME = null;
     public int TICKS_OUT_OF_COMBAT = 0;
     public int NPC_ATTACK_SPEED = 4;
-    public int RENDER_HEIGHT = 70;
+    public int RENDER_HEIGHT = 75;
     public long NPC_TAGGED_TIME = 0;
     public boolean ENABLE_RETALIATION_DELAY = false;
     public boolean ENABLE_OVERHEAD_COUNTERS = false;

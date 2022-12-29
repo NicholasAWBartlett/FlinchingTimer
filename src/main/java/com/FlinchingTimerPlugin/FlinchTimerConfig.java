@@ -1,4 +1,4 @@
-package com.FlinchTimer;
+package com.FlinchingTimerPlugin;
 
 import net.runelite.client.config.*;
 
@@ -88,7 +88,7 @@ public interface FlinchTimerConfig extends Config
 			section = interfaceSettings
 	)
 	default int setRenderHeight() {
-		return 70;
+		return 75;
 	}
 
 
