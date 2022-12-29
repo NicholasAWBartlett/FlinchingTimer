@@ -3,7 +3,7 @@ package com.FlinchingTimerPlugin;
 import net.runelite.client.config.*;
 
 @ConfigGroup("Flinch Timer")
-public interface FlinchTimerConfig extends Config
+public interface FlinchingTimerConfig extends Config
 {
 	@ConfigSection(
 			name = "General",

@@ -23,15 +23,15 @@ import java.util.Objects;
         description = "Renders customizable flinching timer over designated NPC",
         tags = {"combat", "flinch", "flinching", "timers"}
 )
-public class FlinchTimer extends Plugin {
+public class FlinchingTimer extends Plugin {
     @Inject
     private Client client;
 
     @Inject
-    private FlinchTimerConfig config;
+    private FlinchingTimerConfig config;
 
     @Inject
-    private FlinchTimerOverlay flinchTimerOverlay;
+    private FlinchingTimerOverlay flinchingTimerOverlay;
     @Inject
     private OverlayManager overlayManager;
 
@@ -43,8 +43,8 @@ public class FlinchTimer extends Plugin {
     public long NPC_TAGGED_TIME = 0;
     public boolean ENABLE_RETALIATION_DELAY = false;
     public boolean ENABLE_OVERHEAD_COUNTERS = false;
-    public FlinchTimerConfig.TimerColor WAIT_COLOR = null;
-    public FlinchTimerConfig.TimerColor ATTACK_COLOR = null;
+    public FlinchingTimerConfig.TimerColor WAIT_COLOR = null;
+    public FlinchingTimerConfig.TimerColor ATTACK_COLOR = null;
 
 
     @Override
@@ -67,7 +67,7 @@ public class FlinchTimer extends Plugin {
         try {
             if (CURRENT_NPC != null) {
                 CURRENT_NPC.setOverheadText("");
-                overlayManager.remove(flinchTimerOverlay);
+                overlayManager.remove(flinchingTimerOverlay);
                 TICKS_OUT_OF_COMBAT = 0;
                 CURRENT_NPC = null;
             }
@@ -125,7 +125,7 @@ public class FlinchTimer extends Plugin {
 
         if (Objects.equals(npc.getName().toLowerCase(), NPC_NAME) && npc.getInteracting() == client.getLocalPlayer()) {
             TICKS_OUT_OF_COMBAT = 0;
-            overlayManager.remove(flinchTimerOverlay);
+            overlayManager.remove(flinchingTimerOverlay);
             NPC_TAGGED_TIME = now.toEpochMilli();
             if (npc.isDead() && npc == CURRENT_NPC) {
                 CURRENT_NPC = null;
@@ -137,7 +137,7 @@ public class FlinchTimer extends Plugin {
                 }
                 CURRENT_NPC = npc;
             }
-            overlayManager.add(flinchTimerOverlay);
+            overlayManager.add(flinchingTimerOverlay);
         }
     }
 
@@ -151,7 +151,7 @@ public class FlinchTimer extends Plugin {
 
         if (npc == CURRENT_NPC) {
             TICKS_OUT_OF_COMBAT = 0;
-            overlayManager.remove(flinchTimerOverlay);
+            overlayManager.remove(flinchingTimerOverlay);
             CURRENT_NPC = null;
         }
     }
@@ -173,13 +173,13 @@ public class FlinchTimer extends Plugin {
         if (Objects.equals(npc.getName().toLowerCase(), NPC_NAME) && npc.getInteracting() == client.getLocalPlayer()) {
             if (npc.isDead() && npc == CURRENT_NPC) {
                 TICKS_OUT_OF_COMBAT = 0;
-                overlayManager.remove(flinchTimerOverlay);
+                overlayManager.remove(flinchingTimerOverlay);
                 CURRENT_NPC = null;
                 return;
             }
             if (client.getLocalPlayer().getAnimation() != -1) {
                 TICKS_OUT_OF_COMBAT = 0;
-                overlayManager.remove(flinchTimerOverlay);
+                overlayManager.remove(flinchingTimerOverlay);
                 NPC_TAGGED_TIME = now.toEpochMilli();
                 if (npc != CURRENT_NPC) {
                     if (CURRENT_NPC != null && ENABLE_OVERHEAD_COUNTERS) {
@@ -187,7 +187,7 @@ public class FlinchTimer extends Plugin {
                     }
                     CURRENT_NPC = npc;
                 }
-                overlayManager.add(flinchTimerOverlay);
+                overlayManager.add(flinchingTimerOverlay);
             }
         }
     }
@@ -216,7 +216,7 @@ public class FlinchTimer extends Plugin {
     }
 
     @Provides
-    FlinchTimerConfig provideConfig(ConfigManager configManager) {
-        return configManager.getConfig(FlinchTimerConfig.class);
+    FlinchingTimerConfig provideConfig(ConfigManager configManager) {
+        return configManager.getConfig(FlinchingTimerConfig.class);
     }
 }

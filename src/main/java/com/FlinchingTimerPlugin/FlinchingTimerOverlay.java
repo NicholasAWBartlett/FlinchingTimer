@@ -14,12 +14,12 @@ import java.awt.*;
 import java.time.Instant;
 
 
-public class FlinchTimerOverlay extends Overlay {
+public class FlinchingTimerOverlay extends Overlay {
     private final Client client;
-    private final FlinchTimer flinchTimer;
+    private final FlinchingTimer flinchTimer;
 
     @Inject
-    private FlinchTimerOverlay(Client client, FlinchTimer flinchTimer) {
+    private FlinchingTimerOverlay(Client client, FlinchingTimer flinchTimer) {
         this.flinchTimer = flinchTimer;
         this.client = client;
         setPosition(OverlayPosition.DYNAMIC);
@@ -63,7 +63,7 @@ public class FlinchTimerOverlay extends Overlay {
         return null;
     }
 
-    private Color updateColor(FlinchTimerConfig.TimerColor color) {
+    private Color updateColor(FlinchingTimerConfig.TimerColor color) {
         switch (color) {
             case RED:
                 return Color.RED;
