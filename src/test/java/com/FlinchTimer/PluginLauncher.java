@@ -7,7 +7,7 @@ public class PluginLauncher
 {
 	public static void main(String[] args) throws Exception
 	{
-		ExternalPluginManager.loadBuiltin(FlinchTimerMain.class);
+		ExternalPluginManager.loadBuiltin(FlinchTimer.class);
 		RuneLite.main(args);
 	}
 }
