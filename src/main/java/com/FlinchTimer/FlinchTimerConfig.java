@@ -110,7 +110,7 @@ public interface FlinchTimerConfig extends Config
 
 	@Range(
 			min = 1,
-			max = 9
+			max = 15
 	)
 	@ConfigItem(
 			keyName = "retaliationDelay",
